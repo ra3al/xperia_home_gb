@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="home_dialog_title_add_to_home_txt">Add and personalise</string>
+    <string name="home_permission_install_shortcut_description">allows an application to add shortcuts without user intervention</string>
+    <string name="home_permission_receive_badge_description">allows an application to receive information about badges that should be put on the application\'s activity icon</string>
+</resources>

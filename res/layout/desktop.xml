@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout android:id="@id/desktop_layer" android:animationCache="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.sonyericsson.home.layer.HintView android:id="@id/desktop_nudge_left" android:visibility="gone" android:layout_width="@dimen/desktop_nudge_width" android:layout_height="@dimen/desktop_height" android:layout_marginTop="@dimen/desktop_padding_top" />
+    <com.sonyericsson.home.layer.HintView android:id="@id/desktop_nudge_right" android:visibility="gone" android:layout_width="@dimen/desktop_nudge_width" android:layout_height="@dimen/desktop_height" android:layout_marginTop="@dimen/desktop_padding_top" android:layout_marginRight="@dimen/desktop_right_nudge_padding_right" android:layout_alignParentRight="true" />
+    <com.sonyericsson.paneview.FindBlockingPaneView android:id="@id/desktop_pane_view" android:paddingLeft="@dimen/desktop_padding_left" android:paddingTop="@dimen/desktop_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <include layout="@layout/desktop_pagination" />
+    <include layout="@layout/network_name" />
+</RelativeLayout>

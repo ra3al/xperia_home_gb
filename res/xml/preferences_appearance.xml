@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen android:title="Appearance Settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:prefs="http://schemas.android.com/apk/res/com.sonyericsson.home">
+    <com.sonyericsson.home.IconPreferenceScreen android:title="Icon Packs" prefs:icon="@drawable/ic_settings_display">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.ICONPACK" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <CheckBoxPreference android:title="Static Wallpaper" android:key="staticWallpaper" android:summary="Use static wallpaper" android:defaultValue="false" />
+    <CheckBoxPreference android:title="Show titles in dock bar (portrait orientation only)" android:key="textInStage" android:summary="Show the titles of shortcuts and folders in the dock bar" android:defaultValue="true" />
+</PreferenceScreen>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <integer name="apptray_grid_rows">4</integer>
+    <integer name="apptray_grid_cols">4</integer>
+    <integer name="desktop_first_pane_switch_wait_duration">500</integer>
+    <integer name="pane_margin">0</integer>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+    <groups type="stage">
+        <group>
+            <groups type="activities">
+                <group>
+                    <setting key="name">.DialtactsActivity</setting>
+                    <setting key="package-name">com.android.contacts</setting>
+                </group>
+                <group>
+                    <setting key="name">.DialtactsContactsEntryActivity</setting>
+                    <setting key="package-name">com.android.contacts</setting>
+                </group>
+                <group>
+                    <setting key="name">.ui.ConversationList</setting>
+                    <setting key="package-name">com.android.mms</setting>
+                </group>
+            </groups>
+            <groups type="folders">
+                <group>
+                    <setting key="category">tools</setting>
+                    <setting key="id">tools</setting>
+                </group>
+            </groups>
+            <groups type="activities">
+                <group>
+                    <setting key="name">.BrowserActivity</setting>
+                    <setting key="package-name">com.android.browser</setting>
+                    <setting key="folder">tools</setting>
+                </group>
+            </groups>
+        </group>
+    </groups>
+</settings>

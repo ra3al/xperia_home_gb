@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string-array name="home_folder_name_default_txt">
+        <item>Folder</item>
+        <item>Social</item>
+        <item>Entertainment</item>
+        <item>Media</item>
+        <item>Favorites</item>
+        <item>Health</item>
+        <item>Tools</item>
+        <item>News</item>
+    </string-array>
+    <string-array name="home_folder_customization_categories">
+        <item>default</item>
+        <item>social</item>
+        <item>entertainment</item>
+        <item>media</item>
+        <item>favorites</item>
+        <item>health</item>
+        <item>tools</item>
+        <item>news</item>
+    </string-array>
+    <string-array name="numberHomescreensArray">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="numberHomescreensArrayVals">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+    </string-array>
+    <string-array name="homeButtonActions">
+        <item>Go to default screen</item>
+        <item>Open/Close app drawer</item>
+    </string-array>
+    <string-array name="homeButtonActionsVals">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

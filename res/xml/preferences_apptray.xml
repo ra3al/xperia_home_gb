@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen android:title="App Drawer Settings"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:prefs="http://schemas.android.com/apk/res/com.sonyericsson.home">
+    <CheckBoxPreference android:title="Go to first pane" android:key="apptrayStartFromFirstPane" android:summary="Always go to first pane in the app drawer" android:defaultValue="false" />
+    <com.sonyericsson.home.IconPreferenceScreen android:title="Hidden Apps" prefs:icon="@drawable/ic_settings_tray">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.HIDDENAPPS" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <ListPreference android:title="App Drawer Rows" android:key="numAppTrayRows" android:summary="Select number of app drawer rows" android:defaultValue="4" />
+    <ListPreference android:title="App Drawer Columns" android:key="numAppTrayCols" android:summary="Select number of app drawer columns" android:defaultValue="4" />
+    <CheckBoxPreference android:title="No Screen Indicator (Portrait)" android:key="autohideAppTrayPaginatorPort" android:summary="Autohide app drawer pane indicator" android:defaultValue="false" />
+    <CheckBoxPreference android:title="No Screen Indicator (Landscape)" android:key="autohideAppTrayPaginatorLand" android:summary="Autohide app drawer pane indicator" android:defaultValue="true" />
+</PreferenceScreen>

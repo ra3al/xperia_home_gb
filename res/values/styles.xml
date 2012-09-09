@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <style name="HomeTheme" parent="@android:style/Theme.Wallpaper.NoTitleBar" />
+    <style name="Layout.ButtonContainer" parent="@android:style/Theme.Wallpaper.NoTitleBar">
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/styles_fbi_buttoncontainer_marginTop</item>
+        <item name="android:layout_marginBottom">@dimen/styles_fbi_buttoncontainer_marginBottom</item>
+    </style>
+</resources>

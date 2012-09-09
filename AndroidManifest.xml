@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest android:sharedUserId="com.sonyericsson.home" android:versionCode="33" android:versionName="0.9.1b" android:sharedUserLabel="@string/home_application_name_txt" package="com.sonyericsson.home"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="10" />
+    <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" />
+    <application android:label="@string/home_application_name_txt" android:icon="@drawable/homescreen_application_launcher" android:name=".HomeApplication">
+        <activity android:theme="@style/HomeTheme" android:label="@string/home_application_name_txt" android:name=".HomeActivity" android:clearTaskOnLaunch="true" android:stateNotNeeded="true" android:launchMode="singleTask" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.sonyericsson.home.intent.MAINACTIVITY" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/home_application_name_txt" android:name=".PreferencesMainActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Home Screen Settings" android:name=".PreferencesHomeActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="App Drawer Settings" android:name=".PreferencesApptrayActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.APPTRAY" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Appearance Settings" android:name=".PreferencesAppearanceActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.APPEARANCE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Behavior Settings" android:name=".PreferencesBehaviorActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.BEHAVIOR" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Backup And Restore" android:name=".PreferencesBackupActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.BACKUP" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="About" android:name=".PreferencesAboutActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.ABOUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="App Drawer: Hidden Apps" android:name=".PreferencesHiddenAppsActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.HIDDENAPPS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Icon Pack Settings" android:name=".PreferencesIconPackActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.sonyericsson.home.intent.ra3al.ICONPACK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <service android:name=".ShortcutService" />
+        <receiver android:name=".ShortcutService$InstallShortcutReceiver" android:permission="com.android.launcher.permission.INSTALL_SHORTCUT">
+            <intent-filter>
+                <action android:name="com.android.launcher.action.INSTALL_SHORTCUT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".ShortcutService$UninstallShortcutReceiver" android:permission="com.android.launcher.permission.UNINSTALL_SHORTCUT">
+            <intent-filter>
+                <action android:name="com.android.launcher.action.UNINSTALL_SHORTCUT" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.sonyericsson.home.BadgeService" />
+        <receiver android:name="com.sonyericsson.home.BadgeService$BadgeReceiver" android:permission="com.sonyericsson.home.permission.BROADCAST_BADGE">
+            <intent-filter>
+                <action android:name="com.sonyericsson.home.action.UPDATE_BADGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="com.sonyericsson.permission.FACEBOOK" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BIND_APPWIDGET" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.sonyericsson.home.permission.RECEIVE_BADGE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <permission android:label="@string/home_permission_install_shortcut_label" android:name="com.android.launcher.permission.INSTALL_SHORTCUT" android:protectionLevel="normal" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/home_permission_install_shortcut_description" />
+    <permission android:label="@string/home_permission_uninstall_shortcut_label" android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" android:protectionLevel="normal" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/home_permission_uninstall_shortcut_description" />
+    <permission android:label="@string/home_permission_receive_badge_label" android:name="com.sonyericsson.home.permission.RECEIVE_BADGE" android:protectionLevel="dangerous" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/home_permission_receive_badge_description" />
+    <permission android:label="@string/home_permission_broadcast_badge_label" android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" android:protectionLevel="dangerous" android:permissionGroup="android.permission-group.SYSTEM_TOOLS" android:description="@string/home_permission_broadcast_badge_description" />
+</manifest>

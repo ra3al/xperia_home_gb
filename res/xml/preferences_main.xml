@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen android:title="Launcher Preferences"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:prefs="http://schemas.android.com/apk/res/com.sonyericsson.home">
+    <com.sonyericsson.home.IconPreferenceScreen android:title="Home Screen" prefs:icon="@drawable/ic_settings_hs">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.HOME" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <com.sonyericsson.home.IconPreferenceScreen android:title="App Drawer" prefs:icon="@drawable/ic_settings_tray">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.APPTRAY" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <com.sonyericsson.home.IconPreferenceScreen android:title="Appearance" prefs:icon="@drawable/ic_settings_display">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.APPEARANCE" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <com.sonyericsson.home.IconPreferenceScreen android:title="Behavior" prefs:icon="@drawable/ic_settings_applications">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.BEHAVIOR" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <com.sonyericsson.home.IconPreferenceScreen android:title="Backup And Restore" prefs:icon="@drawable/ic_settings_storage">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.BACKUP" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+    <com.sonyericsson.home.IconPreferenceScreen android:title="About" prefs:icon="@drawable/ic_settings_about">
+        <intent android:action="com.sonyericsson.home.intent.ra3al.ABOUT" />
+    </com.sonyericsson.home.IconPreferenceScreen>
+</PreferenceScreen>

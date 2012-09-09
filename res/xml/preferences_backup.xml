@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen android:title="Backup And Restore"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference android:persistent="false" android:title="Backup Settings" android:key="settingsBackup" />
+    <Preference android:persistent="false" android:title="Restore Settings" android:key="settingsRestore" />
+</PreferenceScreen>

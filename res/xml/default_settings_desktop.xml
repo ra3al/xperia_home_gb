@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+    <groups type="desktop">
+        <group>
+            <groups type="widgets">
+                <group>
+                    <setting key="name">.SearchWidgetProvider</setting>
+                    <setting key="package-name">com.android.quicksearchbox</setting>
+                    <setting key="width">4</setting>
+                    <setting key="height">1</setting>
+                    <setting key="y">0</setting>
+                    <setting key="pane">2</setting>
+                </group>
+            </groups>
+        </group>
+    </groups>
+</settings>

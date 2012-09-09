@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout android:visibility="gone" android:animationCache="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/apptray_nudges_att" />
+    <com.sonyericsson.paneview.PaneView android:id="@id/apptray_pane_view" android:paddingLeft="@dimen/apptray_padding_left" android:paddingTop="@dimen/apptray_padding_top" android:paddingRight="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/apptray_portrait_height" android:layout_marginTop="@dimen/apptray_margin_top_att" />
+    <com.sonyericsson.home.layer.PaneIndicator android:id="@id/apptray_pane_indicator" android:layout_width="fill_parent" android:layout_height="25.0dip" android:layout_marginBottom="@dimen/apptray_pagination_margin_bottom_att" android:layout_alignParentBottom="true" />
+</RelativeLayout>
