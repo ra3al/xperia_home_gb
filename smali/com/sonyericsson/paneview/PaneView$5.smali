@@ -66,35 +66,31 @@
 .end method
 
 .method private negate(FI)F
-    .locals 3
+    .locals 2
     .parameter "var"
     .parameter "val"
 
     .prologue
-    .line 24
-    const/4 v1, 0x0
-
-    .line 25
-    .local v1, min:I
-    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
-
-    move-result v2
-
-    add-int/lit8 v0, v2, -0x1
-
     .line 26
-    .local v0, max:I
-    if-lt p2, v1, :cond_0
+    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v1}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
+
+    move-result v1
+
+    add-int/lit8 v0, v1, -0x1
+
+    .line 30
+    .local v0, i:I
+    if-ltz p2, :cond_0
 
     if-le p2, v0, :cond_1
 
-    .line 28
+    .line 34
     :cond_0
     neg-float p1, p1
 
-    .line 30
+    .line 37
     :cond_1
     return p1
 .end method
@@ -239,277 +235,387 @@
 .end method
 
 .method public onFling(FF)V
-    .locals 7
-    .parameter "velocityX"
-    .parameter "velocityY"
+    .locals 11
+    .parameter "VelocityX"
+    .parameter "VelocityY"
 
     .prologue
-    .line 1433
-    iget-boolean v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->horizontalDrag:Z
+    const/4 v10, 0x0
+    .line 129
+    iget-boolean v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->horizontalDrag:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v7, :cond_1
 
-    .line 1434
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    .line 131
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
 
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$2100(Lcom/sonyericsson/paneview/PaneView;)Z
 
-    move-result-object v3
+    move-result v7
 
-    invoke-virtual {v3}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
+    if-eqz v7, :cond_0
 
-    move-result v0
+    .line 133
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
 
-    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
 
-    move-result v3
+    move-result-object v7
 
-    invoke-direct {p0, p1, v3}, Lcom/sonyericsson/paneview/PaneView$5;->negate(FI)F
-
-    move-result p1
-
-    .line 1435
-    .local v0, position:F
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    neg-float v4, p1
-
-    invoke-static {v3, v4}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
-
-    move-result v1
-
-    .line 1436
-    .local v1, scaledVelocity:F
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
-
-    move-result-object v3
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v4
-
-    invoke-virtual {v3, v0, v1, v4, v5}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
-
-    .line 1438
-    invoke-static {v0}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    const/4 v4, 0x0
-
-    iget-object v5, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v5}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
-
-    move-result v5
-
-    const/4 v6, 0x1
-
-    sub-int/2addr v5, v6
-
-    invoke-static {v3, v4, v5}, Lcom/sonyericsson/util/MathUtil;->clampInfinite(III)I
-
-    move-result v3
-
-    int-to-float v2, v3
-
-    .line 1440
-    .local v2, snapPosition:F
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v3, p1, v0, v2}, Lcom/sonyericsson/paneview/PaneView;->access$1500(Lcom/sonyericsson/paneview/PaneView;FFF)F
+    invoke-virtual {v7}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
 
     move-result v2
 
-    .line 1441
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    .line 134
+    .local v2, f3:F
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+    move-result v7
 
-    move-result-object v3
+    invoke-direct {p0, p1, v7}, Lcom/sonyericsson/paneview/PaneView$5;->negate(FI)F
 
-    invoke-virtual {v3, v2}, Lcom/sonyericsson/util/Dynamics;->setMaxPosition(F)V
+    move-result v3
 
-    .line 1442
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    .line 135
+    .local v3, f4:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
 
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+    neg-float v8, v3
 
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Lcom/sonyericsson/util/Dynamics;->setMinPosition(F)V
-
-    .line 1451
-    .end local v2           #snapPosition:F
-    :goto_0
-    return-void
-
-    .line 1444
-    .end local v0           #position:F
-    .end local v1           #scaledVelocity:F
-    :cond_0
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    neg-float v4, p2
-
-    invoke-static {v3, v4}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
-
-    move-result v1
-
-    .line 1445
-    .restart local v1       #scaledVelocity:F
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
-
-    move-result v0
-
-    .line 1446
-    .restart local v0       #position:F
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
-
-    move-result-object v3
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v4
-
-    invoke-virtual {v3, v0, v1, v4, v5}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
-
-    .line 1448
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v4}, Lcom/sonyericsson/paneview/PaneView;->access$1700(Lcom/sonyericsson/paneview/PaneView;)F
+    invoke-static {v7, v8}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
 
     move-result v4
 
-    invoke-virtual {v3, v4}, Lcom/sonyericsson/util/Dynamics;->setMaxPosition(F)V
+    .line 136
+    .local v4, f5:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
 
-    .line 1449
-    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
 
-    invoke-static {v3}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+    move-result-object v7
 
-    move-result-object v3
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    const/4 v4, 0x0
+    move-result-wide v8
 
-    invoke-virtual {v3, v4}, Lcom/sonyericsson/util/Dynamics;->setMinPosition(F)V
+    invoke-virtual {v7, v2, v4, v8, v9}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
+
+    .line 137
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    iget-object v8, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v8}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
+
+    move-result v8
+
+    add-int/lit8 v8, v8, -0x1
+
+    invoke-static {v7, v10, v8}, Lcom/sonyericsson/util/MathUtil;->clampInfinite(III)I
+
+    move-result v7
+
+    int-to-float v5, v7
+
+    .line 138
+    .local v5, f6:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7, v3, v2, v5}, Lcom/sonyericsson/paneview/PaneView;->access$1500(Lcom/sonyericsson/paneview/PaneView;FFF)F
+
+    move-result v6
+
+    .line 139
+    .local v6, f7:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v6}, Lcom/sonyericsson/util/Dynamics;->setMaxPosition(F)V
+
+    .line 140
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v6}, Lcom/sonyericsson/util/Dynamics;->setMinPosition(F)V
+
+    .line 162
+    .end local v2           #f3:F
+    .end local v3           #f4:F
+    .end local v4           #f5:F
+    .end local v5           #f6:F
+    .end local v6           #f7:F
+    :goto_0
+    return-void
+
+    .line 144
+    :cond_0
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
+
+    move-result v3
+    .line 145
+    .restart local v3       #f4:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    neg-float v8, p1
+
+    invoke-static {v7, v8}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
+    move-result v2
+
+    .line 146
+    .restart local v2       #f3:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v8
+
+    invoke-virtual {v7, v3, v2, v8, v9}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
+
+    .line 147
+    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+
+    move-result v7
+
+    iget-object v8, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v8}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
+
+    move-result v8
+
+    add-int/lit8 v8, v8, -0x1
+
+    invoke-static {v7, v10, v8}, Lcom/sonyericsson/util/MathUtil;->clamp(III)I
+
+    move-result v7
+
+    int-to-float v4, v7
+
+    .line 148
+    .restart local v4       #f5:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7, p1, v3, v4}, Lcom/sonyericsson/paneview/PaneView;->access$1500(Lcom/sonyericsson/paneview/PaneView;FFF)F
+
+    move-result v5
+    .line 149
+    .restart local v5       #f6:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Lcom/sonyericsson/util/Dynamics;->setMaxPosition(F)V
+
+    .line 150
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Lcom/sonyericsson/util/Dynamics;->setMinPosition(F)V
+
+    goto :goto_0
+
+    .line 155
+    .end local v2           #f3:F
+    .end local v3           #f4:F
+    .end local v4           #f5:F
+    .end local v5           #f6:F
+    :cond_1
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    neg-float v8, p2
+
+    invoke-static {v7, v8}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
+
+    move-result v0
+
+    .line 156
+    .local v0, f1:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
+
+    move-result v1
+
+    .line 157
+    .local v1, f2:F
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v8
+
+    invoke-virtual {v7, v1, v0, v8, v9}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
+
+    .line 158
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v8}, Lcom/sonyericsson/paneview/PaneView;->access$1700(Lcom/sonyericsson/paneview/PaneView;)F
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Lcom/sonyericsson/util/Dynamics;->setMaxPosition(F)V
+
+    .line 159
+    iget-object v7, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v7}, Lcom/sonyericsson/paneview/PaneView;->access$1600(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v7, v8}, Lcom/sonyericsson/util/Dynamics;->setMinPosition(F)V
 
     goto :goto_0
 .end method
 
 .method public onHorizontalDrag(I)V
-    .locals 6
+    .locals 7
     .parameter "dx"
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v6, 0x0
 
-    .line 1464
-    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    .line 180
+    const v1, 0x3ecccccd
 
-    invoke-static {v1}, Lcom/sonyericsson/paneview/PaneView;->access$1800(Lcom/sonyericsson/paneview/PaneView;)V
-
-    .line 1465
-    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-virtual {v1}, Lcom/sonyericsson/paneview/PaneView;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v1
-
-    invoke-interface {v1, v2}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
-
-    .line 1466
-    iput-boolean v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->horizontalDrag:Z
-
-    .line 1467
-    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v1}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
-
-    move-result v0
-
-    .line 1468
-    .local v0, currentPosition:F
-    cmpg-float v1, v0, v5
-
-    if-ltz v1, :cond_0
-
-    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v1}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
-
-    move-result v1
-
-    sub-int/2addr v1, v2
-
-    int-to-float v1, v1
-
-    cmpl-float v1, v0, v1
-
-    if-lez v1, :cond_1
-
-    .line 1469
-    :cond_0
-    int-to-float v1, p1
-
-    const/high16 v2, 0x4020
-
-    mul-float/2addr v1, v2
-
-    float-to-int p1, v1
-
-    .line 1471
-    :cond_1
-    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
-
-    invoke-static {v1}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
-
-    move-result-object v1
-
+    .line 181
+    .local v1, modFactor:F
     iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
 
-    int-to-float v3, p1
-
-    invoke-static {v2, v3}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
+    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$2100(Lcom/sonyericsson/paneview/PaneView;)Z
 
     move-result v2
 
-    sub-float v2, v0, v2
+    if-eqz v2, :cond_0
+
+    .line 183
+    const/high16 v1, 0x4020
+
+    .line 185
+    :cond_0
+    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$1800(Lcom/sonyericsson/paneview/PaneView;)V
+
+    .line 186
+    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-virtual {v2}, Lcom/sonyericsson/paneview/PaneView;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    invoke-interface {v2, v3}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+
+    .line 187
+    iput-boolean v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->horizontalDrag:Z
+
+    .line 188
+    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sonyericsson/util/Dynamics;->getPosition()F
+
+    move-result v0
+
+    .line 189
+    .local v0, currentPosition:F
+    cmpg-float v2, v0, v6
+
+    if-ltz v2, :cond_1
+
+    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$1400(Lcom/sonyericsson/paneview/PaneView;)I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    int-to-float v2, v2
+
+    cmpl-float v2, v0, v2
+
+    if-lez v2, :cond_2
+
+    .line 190
+    :cond_1
+    int-to-float v2, p1
+
+    mul-float/2addr v2, v1
+
+    float-to-int p1, v2
+
+    .line 191
+    :cond_2
+    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$1300(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/util/Dynamics;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+
+    int-to-float v4, p1
+
+    invoke-static {v3, v4}, Lcom/sonyericsson/paneview/PaneView;->access$1200(Lcom/sonyericsson/paneview/PaneView;F)F
+
+    move-result v3
+
+    sub-float v3, v0, v3
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    invoke-virtual {v1, v2, v5, v3, v4}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
+    invoke-virtual {v2, v3, v6, v4, v5}, Lcom/sonyericsson/util/Dynamics;->setState(FFJ)V
 
-    .line 1473
-    iget-object v1, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
+    .line 192
+    iget-object v2, p0, Lcom/sonyericsson/paneview/PaneView$5;->this$0:Lcom/sonyericsson/paneview/PaneView;
 
-    invoke-static {v1}, Lcom/sonyericsson/paneview/PaneView;->access$1900(Lcom/sonyericsson/paneview/PaneView;)V
+    invoke-static {v2}, Lcom/sonyericsson/paneview/PaneView;->access$1900(Lcom/sonyericsson/paneview/PaneView;)V
 
-    .line 1474
+    .line 193
     return-void
 .end method
 

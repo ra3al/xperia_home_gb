@@ -90,6 +90,8 @@
 
 .field private mGestureDetector:Lcom/sonyericsson/paneview/GestureDetector;
 
+.field private mInfiniteScroll:Z
+
 .field private mInteractionListener:Lcom/sonyericsson/paneview/PaneView$InteractionListener;
 
 .field private mInvalidRect:Landroid/graphics/Rect;
@@ -221,6 +223,8 @@
     .prologue
     .line 438
     invoke-direct {p0, p1, p2}, Landroid/widget/AdapterView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    invoke-direct {p0, p1}, Lcom/sonyericsson/paneview/PaneView;->setInfiniteScroll(Landroid/content/Context;)V
 
     .line 295
     new-instance v1, Ljava/util/HashMap;
@@ -361,6 +365,39 @@
     iput-object v1, p0, Lcom/sonyericsson/paneview/PaneView;->mItemFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
 
     .line 511
+    return-void
+.end method
+
+.method private setInfiniteScroll(Landroid/content/Context;)V
+    .locals 3
+    .parameter "ctx"
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 50
+    iput-boolean v2, p0, Lcom/sonyericsson/paneview/PaneView;->mInfiniteScroll:Z
+
+    .line 51
+    if-eqz p1, :cond_0
+
+    .line 53
+    const-string v0, "com.sonyericsson.home_preferences"
+
+    invoke-virtual {p1, v0, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const-string v1, "infiniteScroll"
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/sonyericsson/paneview/PaneView;->mInfiniteScroll:Z
+
+    .line 55
+    :cond_0
     return-void
 .end method
 
@@ -515,6 +552,17 @@
     invoke-direct {p0}, Lcom/sonyericsson/paneview/PaneView;->interactionEnd()V
 
     return-void
+.end method
+
+.method static synthetic access$2100(Lcom/sonyericsson/paneview/PaneView;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 60
+    iget-boolean v0, p0, Lcom/sonyericsson/paneview/PaneView;->mInfiniteScroll:Z
+
+    return v0
 .end method
 
 .method static synthetic access$400(Lcom/sonyericsson/paneview/PaneView;)Lcom/sonyericsson/paneview/PaneView$AdapterItem;
