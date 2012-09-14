@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="home_application_name_txt">Xperia™ Home</string>
+    <string name="home_application_name_txt">Xperia Home</string>
     <string name="home_add_application_shortcut_txt">Applications</string>
     <string name="home_menu_add_txt">Add</string>
     <string name="home_menu_wallpaper_txt">Wallpaper</string>
