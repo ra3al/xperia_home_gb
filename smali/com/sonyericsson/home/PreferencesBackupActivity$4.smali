@@ -30,9 +30,10 @@
     .line 1
     iput-object p1, p0, Lcom/sonyericsson/home/PreferencesBackupActivity$4;->this$0:Lcom/sonyericsson/home/PreferencesBackupActivity;
 
-    .line 140
+    .line 142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    #p0=(Reference,Lcom/sonyericsson/home/PreferencesBackupActivity$4;);
     return-void
 .end method
 
@@ -44,6 +45,6 @@
     .parameter "which"
 
     .prologue
-    .line 144
+    .line 145
     return-void
 .end method

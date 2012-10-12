@@ -1143,391 +1143,521 @@
 .end method
 
 .method public setCustomDPIsettings(Landroid/content/Context;)V
-    .locals 25
+    .locals 26
     .parameter "ctx"
 
     .prologue
-    .line 16
-    const-string v22, "com.sonyericsson.home_preferences"
+    .line 15
+    const-string v23, "com.sonyericsson.home_preferences"
 
-    const/16 v23, 0x0
+    #v23=(Reference,Ljava/lang/String;);
+    const/16 v24, 0x0
 
+    #v24=(Null);
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v22
+    #v0=(Reference,Landroid/content/Context;);
+    move-object/from16 v1, v23
 
-    move/from16 v2, v23
+    #v1=(Reference,Ljava/lang/String;);
+    move/from16 v2, v24
 
+    #v2=(Null);
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string v23, "numDesktopCols"
+    const-string v24, "desktopConfig"
 
-    const-string v24, "4"
+    #v24=(Reference,Ljava/lang/String;);
+    const-string v25, "4"
 
-    invoke-interface/range {v22 .. v24}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    #v25=(Reference,Ljava/lang/String;);
+    invoke-interface/range {v23 .. v25}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v11
+    move-result v10
 
     .line 17
-    .local v11, desktopNumCols:I
-    const-string v22, "com.sonyericsson.home_preferences"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v22
-
-    move/from16 v2, v23
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v22
-
-    const-string v23, "numDesktopRows"
-
-    const-string v24, "4"
-
-    invoke-interface/range {v22 .. v24}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v12
-
-    .line 19
-    .local v12, desktopNumRows:I
-    const-string v22, "com.sonyericsson.home_preferences"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v22
-
-    move/from16 v2, v23
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v22
-
-    const-string v23, "autohideDeskPaginatorPort"
+    .local v10, desktopConfig:I
+    #v10=(Integer);
+    const-string v23, "com.sonyericsson.home_preferences"
 
     const/16 v24, 0x0
 
-    invoke-interface/range {v22 .. v24}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    #v24=(Null);
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v23
+
+    const-string v24, "numDesktopCols"
+
+    #v24=(Reference,Ljava/lang/String;);
+    const-string v25, "4"
+
+    invoke-interface/range {v23 .. v25}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v12
+
+    .line 18
+    .local v12, desktopNumCols:I
+    #v12=(Integer);
+    const-string v23, "com.sonyericsson.home_preferences"
+
+    const/16 v24, 0x0
+
+    #v24=(Null);
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v23
+
+    const-string v24, "numDesktopRows"
+
+    #v24=(Reference,Ljava/lang/String;);
+    const-string v25, "4"
+
+    invoke-interface/range {v23 .. v25}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v13
+
+    .line 20
+    .local v13, desktopNumRows:I
+    #v13=(Integer);
+    const-string v23, "com.sonyericsson.home_preferences"
+
+    const/16 v24, 0x0
+
+    #v24=(Null);
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v23
+
+    const-string v24, "autohideDeskPaginatorPort"
+
+    #v24=(Reference,Ljava/lang/String;);
+    const/16 v25, 0x0
+
+    #v25=(Null);
+    invoke-interface/range {v23 .. v25}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v4
 
-    .line 20
+    .line 21
     .local v4, bAutoHidePaginatorPort:Z
-    const-string v22, "com.sonyericsson.home_preferences"
+    #v4=(Boolean);
+    const-string v23, "com.sonyericsson.home_preferences"
 
-    const/16 v23, 0x0
+    const/16 v24, 0x0
 
+    #v24=(Null);
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    move/from16 v2, v23
+    move/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string v23, "autohideDeskPaginatorLand"
+    const-string v24, "autohideDeskPaginatorLand"
 
-    const/16 v24, 0x1
+    #v24=(Reference,Ljava/lang/String;);
+    const/16 v25, 0x1
 
-    invoke-interface/range {v22 .. v24}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    #v25=(One);
+    invoke-interface/range {v23 .. v25}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v3
 
-    .line 21
+    .line 22
     .local v3, bAutoHidePaginatorLand:Z
-    const-string v22, "com.sonyericsson.home_preferences"
+    #v3=(Boolean);
+    const-string v23, "com.sonyericsson.home_preferences"
 
-    const/16 v23, 0x0
+    const/16 v24, 0x0
 
+    #v24=(Null);
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
-    move/from16 v2, v23
+    move/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string v23, "textInStage"
+    const-string v24, "textInStage"
 
-    const/16 v24, 0x1
+    #v24=(Reference,Ljava/lang/String;);
+    const/16 v25, 0x1
 
-    invoke-interface/range {v22 .. v24}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface/range {v23 .. v25}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v5
 
-    .line 23
-    .local v5, bShowTitles:Z
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v22
-
-    const v23, 0x7f0a001f
-
-    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v14
-
     .line 24
-    .local v14, desktop_right_nudge_padding_right:I
+    .local v5, bShowTitles:Z
+    #v5=(Boolean);
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v22
+    move-result-object v23
 
-    const v23, 0x7f0a0015
+    const v24, 0x7f0a001f
 
-    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    #v24=(Integer);
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v18
+    move-result v15
 
-    .line 26
-    .local v18, stage_breadth:I
+    .line 25
+    .local v15, desktop_right_nudge_padding_right:I
+    #v15=(Integer);
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v22
+    move-result-object v23
 
-    const v23, 0x7f0a001d
+    const v24, 0x7f0a0015
 
-    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v17
-
-    .line 28
-    .local v17, padLeft:I
-    const-string v22, "window"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Landroid/view/WindowManager;
-
-    .line 29
-    .local v21, wm:Landroid/view/WindowManager;
-    new-instance v16, Landroid/util/DisplayMetrics;
-
-    invoke-direct/range {v16 .. v16}, Landroid/util/DisplayMetrics;-><init>()V
-
-    .line 30
-    .local v16, metrics:Landroid/util/DisplayMetrics;
-    invoke-interface/range {v21 .. v21}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
-
-    .line 31
-    move-object/from16 v0, v16
-
-    iget v6, v0, Landroid/util/DisplayMetrics;->density:F
-
-    .line 33
-    .local v6, density:F
-    move-object/from16 v0, v16
-
-    iget v10, v0, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    .line 34
-    .local v10, desktopHeightPx:I
-    move-object/from16 v0, v16
-
-    iget v13, v0, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    .line 36
-    .local v13, desktopWidthPx:I
-    const/high16 v22, 0x41c8
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v22
-
-    invoke-direct {v0, v6, v1}, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->toPixelsRound(FF)I
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v19
 
+    .line 27
+    .local v19, stage_breadth:I
+    #v19=(Integer);
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f0a001d
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v18
+
+    .line 29
+    .local v18, padLeft:I
+    #v18=(Integer);
+    const-string v23, "window"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v22
+
+    #v22=(Reference,Ljava/lang/Object;);
+    check-cast v22, Landroid/view/WindowManager;
+
+    .line 30
+    .local v22, wm:Landroid/view/WindowManager;
+    new-instance v17, Landroid/util/DisplayMetrics;
+
+    #v17=(UninitRef,Landroid/util/DisplayMetrics;);
+    invoke-direct/range {v17 .. v17}, Landroid/util/DisplayMetrics;-><init>()V
+
+    .line 31
+    .local v17, metrics:Landroid/util/DisplayMetrics;
+    #v17=(Reference,Landroid/util/DisplayMetrics;);
+    invoke-interface/range {v22 .. v22}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+
+    .line 32
+    move-object/from16 v0, v17
+
+    iget v6, v0, Landroid/util/DisplayMetrics;->density:F
+
+    .line 34
+    .local v6, density:F
+    #v6=(Integer);
+    move-object/from16 v0, v17
+
+    iget v11, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    .line 35
+    .local v11, desktopHeightPx:I
+    #v11=(Integer);
+    move-object/from16 v0, v17
+
+    iget v14, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+
     .line 37
-    .local v19, statusBarHeight:I
+    .local v14, desktopWidthPx:I
+    #v14=(Integer);
+    const/high16 v23, 0x41c8
+
+    #v23=(Integer);
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    #v1=(Integer);
+    invoke-direct {v0, v6, v1}, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->toPixelsRound(FF)I
+
+    move-result v20
+
+    .line 38
+    .local v20, statusBarHeight:I
+    #v20=(Integer);
     if-eqz v4, :cond_0
 
     const/4 v8, 0x0
 
-    .line 38
+    .line 39
     .local v8, deskPaginatorHeightPort:I
     :goto_0
+    #v8=(Integer);
     if-eqz v3, :cond_1
 
     const/4 v7, 0x0
 
-    .line 39
+    .line 40
     .local v7, deskPaginatorHeightLand:I
     :goto_1
+    #v7=(Integer);
     if-eqz v5, :cond_2
 
-    const/high16 v22, 0x41a0
+    const/high16 v23, 0x41a0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v6, v1}, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->toPixelsRound(FF)I
 
     move-result v9
 
-    .line 43
+    .line 44
     .local v9, deskStageCompesation:I
     :goto_2
+    #v9=(Integer);
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->mOrientationLandscape:Z
 
-    move/from16 v22, v0
+    #v0=(Boolean);
+    move/from16 v23, v0
 
-    if-nez v22, :cond_3
-
-    .line 45
-    sub-int v22, v10, v18
-
-    add-int v22, v22, v9
-
-    sub-int v22, v22, v8
-
-    sub-int v15, v22, v19
+    #v23=(Boolean);
+    if-nez v23, :cond_4
 
     .line 46
-    .local v15, height:I
-    move/from16 v20, v13
+    const/16 v23, 0x4
+
+    #v23=(PosByte);
+    move/from16 v0, v23
+
+    #v0=(PosByte);
+    if-eq v10, v0, :cond_3
 
     .line 48
-    .local v20, width:I
-    div-int v22, v15, v12
+    sub-int v23, v11, v19
 
-    move/from16 v0, v22
+    #v23=(Integer);
+    add-int v23, v23, v9
 
+    sub-int v23, v23, v8
+
+    sub-int v16, v23, v20
+
+    .line 54
+    .local v16, height:I
+    :goto_3
+    #v16=(Integer);
+    move/from16 v21, v14
+
+    .line 56
+    .local v21, width:I
+    #v21=(Integer);
+    div-int v23, v16, v13
+
+    move/from16 v0, v23
+
+    #v0=(Integer);
     move-object/from16 v1, p0
 
+    #v1=(Reference,Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;);
     iput v0, v1, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->mCellHeight:I
 
-    .line 49
-    div-int v22, v20, v11
+    .line 57
+    div-int v23, v21, v12
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->mCellWidth:I
 
-    .line 59
-    :goto_3
+    .line 74
+    :goto_4
     return-void
 
-    .line 37
+    .line 38
     .end local v7           #deskPaginatorHeightLand:I
     .end local v8           #deskPaginatorHeightPort:I
     .end local v9           #deskStageCompesation:I
-    .end local v15           #height:I
-    .end local v20           #width:I
+    .end local v16           #height:I
+    .end local v21           #width:I
     :cond_0
-    const/high16 v22, 0x41f0
+    #v0=(Reference,Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;);v1=(Integer);v7=(Uninit);v8=(Uninit);v9=(Uninit);v16=(Uninit);v21=(Uninit);
+    const/high16 v23, 0x41f0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v6, v1}, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->toPixelsRound(FF)I
 
     move-result v8
 
+    #v8=(Integer);
     goto :goto_0
 
-    .line 38
+    .line 39
     .restart local v8       #deskPaginatorHeightPort:I
     :cond_1
-    const/high16 v22, 0x41f0
+    const/high16 v23, 0x41f0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v6, v1}, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->toPixelsRound(FF)I
 
     move-result v7
 
+    #v7=(Integer);
     goto :goto_1
 
-    .line 39
+    .line 40
     .restart local v7       #deskPaginatorHeightLand:I
     :cond_2
-    const/high16 v22, 0x4234
+    const/high16 v23, 0x4220
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     invoke-direct {v0, v6, v1}, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->toPixelsRound(FF)I
 
     move-result v9
 
+    #v9=(Integer);
     goto :goto_2
 
-    .line 53
+    .line 52
     .restart local v9       #deskStageCompesation:I
     :cond_3
-    sub-int v22, v10, v7
+    #v0=(PosByte);v23=(PosByte);
+    sub-int v23, v11, v8
 
-    sub-int v15, v22, v19
+    #v23=(Integer);
+    sub-int v16, v23, v20
 
-    .line 54
-    .restart local v15       #height:I
-    sub-int v22, v13, v17
+    .restart local v16       #height:I
+    #v16=(Integer);
+    goto :goto_3
 
-    sub-int v20, v22, v14
+    .line 61
+    .end local v16           #height:I
+    :cond_4
+    #v0=(Boolean);v16=(Uninit);v23=(Boolean);
+    sub-int v23, v11, v7
 
-    .line 56
-    .restart local v20       #width:I
-    div-int v22, v15, v12
+    #v23=(Integer);
+    sub-int v16, v23, v20
 
-    move/from16 v0, v22
+    .line 62
+    .restart local v16       #height:I
+    #v16=(Integer);
+    const/16 v23, 0x4
 
+    #v23=(PosByte);
+    move/from16 v0, v23
+
+    #v0=(PosByte);
+    if-eq v10, v0, :cond_5
+
+    .line 64
+    sub-int v23, v14, v18
+
+    #v23=(Integer);
+    sub-int v21, v23, v15
+
+    .line 71
+    .restart local v21       #width:I
+    :goto_5
+    #v21=(Integer);
+    div-int v23, v16, v13
+
+    move/from16 v0, v23
+
+    #v0=(Integer);
     move-object/from16 v1, p0
 
+    #v1=(Reference,Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;);
     iput v0, v1, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->mCellHeight:I
 
-    .line 57
-    div-int v22, v20, v11
+    .line 72
+    div-int v23, v21, v12
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/sonyericsson/home/layer/apptray/AppTrayEditor;->mCellWidth:I
 
-    goto :goto_3
+    goto :goto_4
+
+    .line 68
+    .end local v21           #width:I
+    :cond_5
+    #v0=(PosByte);v1=(Integer);v21=(Uninit);v23=(PosByte);
+    move/from16 v21, v14
+
+    .restart local v21       #width:I
+    #v21=(Integer);
+    goto :goto_5
 .end method
 
 .method public setDoMirror(Z)V

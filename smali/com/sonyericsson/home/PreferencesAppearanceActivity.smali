@@ -7,7 +7,17 @@
 
 
 # instance fields
-.field private restarter:Lcom/sonyericsson/home/Restarter;
+.field mCurrentValues_bool:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
@@ -15,85 +25,90 @@
     .locals 0
 
     .prologue
-    .line 10
+    .line 13
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
+    #p0=(Reference,Lcom/sonyericsson/home/PreferencesAppearanceActivity;);
     return-void
 .end method
 
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .locals 4
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    .line 17
+    .line 20
+    #v3=(Null);
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 18
-    new-instance v3, Lcom/sonyericsson/home/Restarter;
-
-    invoke-direct {v3}, Lcom/sonyericsson/home/Restarter;-><init>()V
-
-    iput-object v3, p0, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->restarter:Lcom/sonyericsson/home/Restarter;
-
-    .line 19
-    const v3, 0x7f050009
-
-    invoke-virtual {p0, v3}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->addPreferencesFromResource(I)V
-
     .line 21
-    const-string v3, "com.sonyericsson.home_preferences"
+    const v2, 0x7f050009
 
-    invoke-virtual {p0, v3, v4}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    .line 23
-    .local v0, prefs:Landroid/content/SharedPreferences;
-    const-string v3, "staticWallpaper"
-
-    invoke-virtual {p0, v3}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/preference/CheckBoxPreference;
+    #v2=(Integer);
+    invoke-virtual {p0, v2}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->addPreferencesFromResource(I)V
 
     .line 24
-    .local v2, staticWallpaper:Landroid/preference/CheckBoxPreference;
-    const-string v3, "staticWallpaper"
+    const-string v2, "com.sonyericsson.home_preferences"
 
-    invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 26
-    const-string v3, "textInStage"
-
-    invoke-virtual {p0, v3}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    .line 23
+    #v2=(Reference,Ljava/lang/String;);
+    invoke-virtual {p0, v2, v3}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
-    check-cast v1, Landroid/preference/CheckBoxPreference;
+    .line 26
+    .local v1, prefs:Landroid/content/SharedPreferences;
+    #v1=(Reference,Landroid/content/SharedPreferences;);
+    const-string v2, "staticWallpaper"
+
+    invoke-virtual {p0, v2}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    #v0=(Reference,Landroid/preference/Preference;);
+    check-cast v0, Landroid/preference/CheckBoxPreference;
 
     .line 27
-    .local v1, stageText:Landroid/preference/CheckBoxPreference;
-    const-string v3, "textInStage"
+    .local v0, cb:Landroid/preference/CheckBoxPreference;
+    const-string v2, "staticWallpaper"
 
-    const/4 v4, 0x1
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v2
 
-    move-result v3
+    #v2=(Boolean);
+    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 29
+    const-string v2, "textInStage"
 
-    .line 28
+    #v2=(Reference,Ljava/lang/String;);
+    invoke-virtual {p0, v2}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    .end local v0           #cb:Landroid/preference/CheckBoxPreference;
+    check-cast v0, Landroid/preference/CheckBoxPreference;
+
+    .line 30
+    .restart local v0       #cb:Landroid/preference/CheckBoxPreference;
+    const-string v2, "textInStage"
+
+    const/4 v3, 0x1
+
+    #v3=(One);
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    #v2=(Boolean);
+    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 31
     return-void
 .end method
 
@@ -101,22 +116,26 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 42
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onPause()V
 
-    .line 42
+    .line 43
     invoke-virtual {p0}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
+    #v0=(Reference,Landroid/preference/PreferenceScreen;);
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    .line 43
+    .line 44
     invoke-interface {v0, p0}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    .line 44
+    .line 45
+    invoke-static {p0}, Lcom/ra3al/restarter/Restarter;->RestartFast(Landroid/content/Context;)V
+
+    .line 46
     return-void
 .end method
 
@@ -124,22 +143,23 @@
     .locals 1
 
     .prologue
-    .line 33
+    .line 35
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
 
-    .line 34
+    .line 36
     invoke-virtual {p0}, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
+    #v0=(Reference,Landroid/preference/PreferenceScreen;);
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    .line 35
+    .line 37
     invoke-interface {v0, p0}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    .line 36
+    .line 38
     return-void
 .end method
 
@@ -149,30 +169,32 @@
     .parameter "key"
 
     .prologue
-    .line 48
+    .line 50
     const-string v0, "textInStage"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-nez v0, :cond_0
 
     const-string v0, "staticWallpaper"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-eqz v0, :cond_1
 
-    .line 50
+    .line 51
     :cond_0
-    iget-object v0, p0, Lcom/sonyericsson/home/PreferencesAppearanceActivity;->restarter:Lcom/sonyericsson/home/Restarter;
+    invoke-static {p0}, Lcom/ra3al/restarter/Restarter;->RequestRestart(Landroid/content/Context;)V
 
-    invoke-virtual {v0, p0}, Lcom/sonyericsson/home/Restarter;->Restart(Landroid/content/Context;)V
-
-    .line 52
+    .line 53
     :cond_1
     return-void
 .end method

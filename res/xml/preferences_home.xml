@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:title="Home Screen Settings"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference android:entries="@array/numberHomescreensArray" android:title="Number of Home Screens" android:key="numberHomescreens" android:summary="Select your desired number of home screens" android:defaultValue="5" android:entryValues="@array/numberHomescreensArrayVals" />
-    <ListPreference android:title="Default Screen" android:key="defaultHomescreen" android:summary="Select the default home screen" android:defaultValue="-1" />
-    <ListPreference android:title="Desktop Rows" android:key="numDesktopRows" android:summary="Select number of desktop rows" android:defaultValue="4" />
-    <ListPreference android:title="Desktop Columns" android:key="numDesktopCols" android:summary="Select number of desktop columns" android:defaultValue="4" />
+    <ListPreference android:entries="@array/numberHomescreensArray" android:title="Number of Home Screens" android:key="numberHomescreens" android:summary="Select your desired number of home screens" android:defaultValue="@string/default_value_numberHomescreens" android:entryValues="@array/numberHomescreensArrayVals" />
+    <ListPreference android:title="Default Screen" android:key="defaultHomescreen" android:summary="Select the default home screen" android:defaultValue="@string/default_value_defHomescreen" />
+    <ListPreference android:entries="@array/homeConfigOptions" android:title="Desktop Configuration" android:key="desktopConfig" android:summary="Select desktop configuration" android:defaultValue="0" android:entryValues="@array/homeConfigOptionsVals" />
+    <ListPreference android:title="Desktop Rows" android:key="numDesktopRows" android:summary="Select number of desktop rows" android:defaultValue="@string/default_value_numDesktopRows" />
+    <ListPreference android:title="Desktop Columns" android:key="numDesktopCols" android:summary="Select number of desktop columns" android:defaultValue="@string/default_value_numDesktopCols" />
     <CheckBoxPreference android:title="No Screen Indicator (Portrait)" android:key="autohideDeskPaginatorPort" android:summary="Autohide home screen indicator" android:defaultValue="false" />
     <CheckBoxPreference android:title="No Screen Indicator (Landscape)" android:key="autohideDeskPaginatorLand" android:summary="Autohide home screen indicator" android:defaultValue="true" />
 </PreferenceScreen>

@@ -1,4 +1,4 @@
-.class Lcom/sonyericsson/home/Restarter$1;
+.class Lcom/ra3al/restarter/Restarter$1;
 .super Ljava/lang/Object;
 .source "Restarter.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sonyericsson/home/Restarter;->Restart(Landroid/content/Context;)V
+    value = Lcom/ra3al/restarter/Restarter;->RestartLegacyImpl(Ljava/lang/String;Landroid/content/Context;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,22 +17,16 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/sonyericsson/home/Restarter;
-
-
 # direct methods
-.method constructor <init>(Lcom/sonyericsson/home/Restarter;)V
+.method constructor <init>()V
     .locals 0
-    .parameter
 
     .prologue
-    .line 1
-    iput-object p1, p0, Lcom/sonyericsson/home/Restarter$1;->this$0:Lcom/sonyericsson/home/Restarter;
-
-    .line 28
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1
+    #p0=(Reference,Lcom/ra3al/restarter/Restarter$1;);
     return-void
 .end method
 
@@ -44,20 +38,23 @@
     .parameter "which"
 
     .prologue
-    .line 32
+    .line 50
     const-wide/16 v0, 0x190
 
+    #v0=(LongLo);v1=(LongHi);
     invoke-static {v0, v1}, Landroid/os/SystemClock;->sleep(J)V
 
-    .line 33
+    .line 51
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v0
 
+    #v0=(Integer);
     const/16 v1, 0x9
 
+    #v1=(PosByte);
     invoke-static {v0, v1}, Landroid/os/Process;->sendSignal(II)V
 
-    .line 34
+    .line 52
     return-void
 .end method

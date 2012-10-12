@@ -1340,6 +1340,75 @@
     return-void
 .end method
 
+.method private createCornerButtonsHelper()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x3
+
+    #v4=(PosByte);
+    const/4 v3, 0x0
+
+    .line 281
+    #v3=(Null);
+    new-instance v0, Landroid/graphics/Rect;
+
+    #v0=(UninitRef,Landroid/graphics/Rect;);
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    .line 282
+    .local v0, localRect:Landroid/graphics/Rect;
+    #v0=(Reference,Landroid/graphics/Rect;);
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
+
+    #v1=(Reference,Lcom/sonyericsson/home/layer/desktop/DesktopController;);
+    invoke-virtual {v1, v3, v3, v0}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
+
+    .line 283
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
+
+    invoke-virtual {v1, v3, v0}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
+
+    .line 284
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
+
+    invoke-virtual {v1, v4, v3, v0}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
+
+    .line 285
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
+
+    const/4 v2, 0x1
+
+    #v2=(One);
+    invoke-virtual {v1, v2, v0}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
+
+    .line 286
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
+
+    invoke-virtual {v1, v3, v4, v0}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
+
+    .line 287
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
+
+    const/4 v2, 0x2
+
+    #v2=(PosByte);
+    invoke-virtual {v1, v2, v0}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
+
+    .line 288
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
+
+    invoke-virtual {v1, v4, v4, v0}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
+
+    .line 289
+    iget-object v1, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
+
+    invoke-virtual {v1, v4, v0}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
+
+    .line 290
+    return-void
+.end method
+
 .method private createCornerButtons()V
     .locals 10
 
@@ -1381,54 +1450,7 @@
     iput-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
 
     .line 1924
-    new-instance v7, Landroid/graphics/Rect;
-
-    invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
-
-    .line 1925
-    .local v7, rect:Landroid/graphics/Rect;
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
-
-    invoke-virtual {v0, v8, v8, v7}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
-
-    .line 1926
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
-
-    invoke-virtual {v0, v8, v7}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
-
-    .line 1928
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
-
-    invoke-virtual {v0, v9, v8, v7}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
-
-    .line 1929
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1, v7}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
-
-    .line 1931
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
-
-    invoke-virtual {v0, v8, v9, v7}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
-
-    .line 1932
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1, v7}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
-
-    .line 1934
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mDesktopController:Lcom/sonyericsson/home/layer/desktop/DesktopController;
-
-    invoke-virtual {v0, v9, v9, v7}, Lcom/sonyericsson/home/layer/desktop/DesktopController;->getCellRect(IILandroid/graphics/Rect;)V
-
-    .line 1935
-    iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
-
-    invoke-virtual {v0, v9, v7}, Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;->setExtraHintRect(ILandroid/graphics/Rect;)V
+    invoke-direct {p0}, Lcom/sonyericsson/home/HomeActivity;->createCornerButtonsHelper()V
 
     .line 1937
     iget-object v0, p0, Lcom/sonyericsson/home/HomeActivity;->mCornerController:Lcom/sonyericsson/home/layer/cornerbutton/CornerButtonsController;
@@ -1442,6 +1464,43 @@
     .line 1980
     .end local v7           #rect:Landroid/graphics/Rect;
     :cond_0
+    return-void
+.end method
+
+.method private setAppOrientation()V
+    .locals 2
+
+    .prologue
+    .line 297
+    invoke-virtual {p0}, Lcom/sonyericsson/home/HomeActivity;->getApplication()Landroid/app/Application;
+
+    move-result-object v0
+
+    #v0=(Reference,Landroid/app/Application;);
+    check-cast v0, Lcom/sonyericsson/home/HomeApplication;
+
+    iget-boolean v1, p0, Lcom/sonyericsson/home/HomeActivity;->mOrientationLandscape:Z
+
+    #v1=(Boolean);
+    invoke-virtual {v0, v1}, Lcom/sonyericsson/home/HomeApplication;->setOrientation(Z)V
+
+    .line 298
+    return-void
+.end method
+
+.method private setResourceWrapper_GB()V
+    .locals 1
+
+    .prologue
+    .line 301
+    invoke-virtual {p0}, Lcom/sonyericsson/home/HomeActivity;->getApplication()Landroid/app/Application;
+
+    move-result-object v0
+
+    #v0=(Reference,Landroid/app/Application;);
+    invoke-static {v0, p0}, Lcom/ra3al/preference/ResourceWrapper_GB;->SetupVariables(Landroid/app/Application;Landroid/content/Context;)V
+
+    .line 302
     return-void
 .end method
 
@@ -3483,9 +3542,9 @@
 
     if-eqz v7, :cond_a
 
-    const v7, 0x7f030019
+    invoke-static {p0}, Lcom/ra3al/preference/ResourceWrapper_GB;->getMainLayout_att(Landroid/content/Context;)I
 
-    move v5, v7
+    move-result v5
 
     .line 594
     .local v5, mainResId:I
@@ -3530,6 +3589,10 @@
 
     :goto_3
     iput-boolean v7, p0, Lcom/sonyericsson/home/HomeActivity;->mOrientationLandscape:Z
+
+    invoke-direct {p0}, Lcom/sonyericsson/home/HomeActivity;->setAppOrientation()V
+
+    invoke-direct {p0}, Lcom/sonyericsson/home/HomeActivity;->setResourceWrapper_GB()V
 
     .line 603
     invoke-virtual {p0}, Lcom/sonyericsson/home/HomeActivity;->getResources()Landroid/content/res/Resources;
@@ -4074,9 +4137,9 @@
     .line 592
     .end local v6           #uiModeManager:Landroid/app/UiModeManager;
     :cond_a
-    const v7, 0x7f030018
+    invoke-static {p0}, Lcom/ra3al/preference/ResourceWrapper_GB;->getMainLayout(Landroid/content/Context;)I
 
-    move v5, v7
+    move-result v5
 
     goto/16 :goto_2
 

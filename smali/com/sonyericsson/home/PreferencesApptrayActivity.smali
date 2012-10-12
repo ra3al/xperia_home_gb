@@ -6,18 +6,15 @@
 .implements Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
 
-# instance fields
-.field private restarter:Lcom/sonyericsson/home/Restarter;
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 13
+    .line 15
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
+    #p0=(Reference,Lcom/sonyericsson/home/PreferencesApptrayActivity;);
     return-void
 .end method
 
@@ -29,6 +26,7 @@
     .line 66
     const-string v0, "apptray"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-static {p1, v0}, Lcom/sonyericsson/storage/Storage;->deleteRoot(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 67
@@ -44,57 +42,61 @@
     .prologue
     const/4 v10, 0x1
 
+    #v10=(One);
     const/4 v9, 0x0
 
     .line 20
+    #v9=(Null);
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 21
-    new-instance v7, Lcom/sonyericsson/home/Restarter;
-
-    invoke-direct {v7}, Lcom/sonyericsson/home/Restarter;-><init>()V
-
-    iput-object v7, p0, Lcom/sonyericsson/home/PreferencesApptrayActivity;->restarter:Lcom/sonyericsson/home/Restarter;
-
-    .line 22
     const v7, 0x7f05000a
 
+    #v7=(Integer);
     invoke-virtual {p0, v7}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->addPreferencesFromResource(I)V
 
     .line 24
     const-string v7, "com.sonyericsson.home_preferences"
 
+    .line 23
+    #v7=(Reference,Ljava/lang/String;);
     invoke-virtual {p0, v7, v9}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v6
 
     .line 26
     .local v6, prefs:Landroid/content/SharedPreferences;
+    #v6=(Reference,Landroid/content/SharedPreferences;);
     const-string v7, "apptrayStartFromFirstPane"
 
     invoke-virtual {p0, v7}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
+    #v0=(Reference,Landroid/preference/Preference;);
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 27
+    .line 28
     .local v0, alwaysFirstPane:Landroid/preference/CheckBoxPreference;
     const-string v7, "apptrayStartFromFirstPane"
 
+    .line 27
     invoke-interface {v6, v7, v9}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v7
 
+    #v7=(Boolean);
     invoke-virtual {v0, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     .line 30
     const-string v7, "numAppTrayCols"
 
+    #v7=(Reference,Ljava/lang/String;);
     invoke-virtual {p0, v7}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
+    #v4=(Reference,Landroid/preference/Preference;);
     check-cast v4, Landroid/preference/ListPreference;
 
     .line 31
@@ -105,16 +107,20 @@
 
     move-result-object v5
 
+    #v5=(Reference,Landroid/preference/Preference;);
     check-cast v5, Landroid/preference/ListPreference;
 
     .line 33
     .local v5, nRows:Landroid/preference/ListPreference;
     const/4 v7, 0x7
 
+    #v7=(PosByte);
     new-array v1, v7, [Ljava/lang/String;
 
+    #v1=(Reference,[Ljava/lang/String;);
     const-string v7, "3"
 
+    #v7=(Reference,Ljava/lang/String;);
     aput-object v7, v1, v9
 
     const-string v7, "4"
@@ -123,8 +129,10 @@
 
     const/4 v7, 0x2
 
+    #v7=(PosByte);
     const-string v8, "5"
 
+    #v8=(Reference,Ljava/lang/String;);
     aput-object v8, v1, v7
 
     const/4 v7, 0x3
@@ -167,6 +175,7 @@
     .line 39
     const-string v7, "numAppTrayCols"
 
+    #v7=(Reference,Ljava/lang/String;);
     const-string v8, "4"
 
     invoke-interface {v6, v7, v8}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -193,6 +202,7 @@
 
     move-result-object v3
 
+    #v3=(Reference,Landroid/preference/Preference;);
     check-cast v3, Landroid/preference/CheckBoxPreference;
 
     .line 43
@@ -203,18 +213,21 @@
 
     move-result v7
 
+    #v7=(Boolean);
     invoke-virtual {v3, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 44
+    .line 45
     const-string v7, "autohideAppTrayPaginatorLand"
 
+    #v7=(Reference,Ljava/lang/String;);
     invoke-virtual {p0, v7}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
+    #v2=(Reference,Landroid/preference/Preference;);
     check-cast v2, Landroid/preference/CheckBoxPreference;
 
-    .line 45
+    .line 46
     .local v2, hidePagLand:Landroid/preference/CheckBoxPreference;
     const-string v7, "autohideAppTrayPaginatorLand"
 
@@ -222,9 +235,10 @@
 
     move-result v7
 
+    #v7=(Boolean);
     invoke-virtual {v2, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 46
+    .line 48
     return-void
 .end method
 
@@ -240,6 +254,7 @@
 
     move-result-object v0
 
+    #v0=(Reference,Landroid/preference/PreferenceScreen;);
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -248,6 +263,9 @@
     invoke-interface {v0, p0}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
     .line 62
+    invoke-static {p0}, Lcom/ra3al/restarter/Restarter;->RestartFast(Landroid/content/Context;)V
+
+    .line 63
     return-void
 .end method
 
@@ -255,22 +273,23 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 52
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
 
-    .line 52
+    .line 53
     invoke-virtual {p0}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
+    #v0=(Reference,Landroid/preference/PreferenceScreen;);
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    .line 53
+    .line 54
     invoke-interface {v0, p0}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    .line 54
+    .line 55
     return-void
 .end method
 
@@ -283,63 +302,75 @@
     .line 71
     const-string v0, "numAppTrayCols"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-nez v0, :cond_0
 
     const-string v0, "numAppTrayRows"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-eqz v0, :cond_1
 
-    .line 73
+    .line 72
     :cond_0
     invoke-direct {p0, p0}, Lcom/sonyericsson/home/PreferencesApptrayActivity;->deleteAppTrayDatabase(Landroid/content/Context;)V
 
-    .line 75
+    .line 74
     :cond_1
     const-string v0, "numAppTrayCols"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-nez v0, :cond_2
 
     const-string v0, "numAppTrayRows"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-nez v0, :cond_2
 
+    .line 75
     const-string v0, "autohideAppTrayPaginatorPort"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-nez v0, :cond_2
 
+    .line 76
     const-string v0, "autohideAppTrayPaginatorLand"
 
+    #v0=(Reference,Ljava/lang/String;);
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    #v0=(Boolean);
     if-eqz v0, :cond_3
 
     .line 77
     :cond_2
-    iget-object v0, p0, Lcom/sonyericsson/home/PreferencesApptrayActivity;->restarter:Lcom/sonyericsson/home/Restarter;
-
-    invoke-virtual {v0, p0}, Lcom/sonyericsson/home/Restarter;->Restart(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/ra3al/restarter/Restarter;->RequestRestart(Landroid/content/Context;)V
 
     .line 79
     :cond_3

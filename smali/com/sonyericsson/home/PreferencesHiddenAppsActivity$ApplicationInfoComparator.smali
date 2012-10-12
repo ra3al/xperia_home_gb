@@ -42,23 +42,24 @@
     .parameter "arg2"
 
     .prologue
-    .line 127
+    .line 117
     iput-object p1, p0, Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;->this$0:Lcom/sonyericsson/home/PreferencesHiddenAppsActivity;
 
-    .line 126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 124
+    .line 115
+    #p0=(Reference,Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;);
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
 
+    #v0=(Reference,Ljava/text/Collator;);
     iput-object v0, p0, Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;->mCollator:Ljava/text/Collator;
 
-    .line 128
+    .line 118
     iput-object p2, p0, Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;->mPm:Landroid/content/pm/PackageManager;
 
-    .line 129
+    .line 119
     return-void
 .end method
 
@@ -70,21 +71,25 @@
     .parameter "paramResolveInfo2"
 
     .prologue
-    .line 133
+    .line 123
     iget-object v0, p0, Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;->mCollator:Ljava/text/Collator;
 
+    #v0=(Reference,Ljava/text/Collator;);
     iget-object v1, p0, Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;->mPm:Landroid/content/pm/PackageManager;
 
+    #v1=(Reference,Landroid/content/pm/PackageManager;);
     invoke-virtual {p1, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
+    .line 124
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/sonyericsson/home/PreferencesHiddenAppsActivity$ApplicationInfoComparator;->mPm:Landroid/content/pm/PackageManager;
 
+    #v2=(Reference,Landroid/content/pm/PackageManager;);
     invoke-virtual {p2, v2}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -93,10 +98,12 @@
 
     move-result-object v2
 
+    .line 123
     invoke-virtual {v0, v1, v2}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
+    #v0=(Integer);
     return v0
 .end method
 
@@ -115,5 +122,6 @@
 
     move-result v0
 
+    #v0=(Integer);
     return v0
 .end method

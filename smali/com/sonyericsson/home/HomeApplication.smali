@@ -14,6 +14,8 @@
 
 .field private mInfoGroupManager:Lcom/sonyericsson/home/layer/InfoGroupManager;
 
+.field private mOrientationLanscape:Z
+
 .field private mPackageLoader:Lcom/sonyericsson/home/resourceload/PackageLoader;
 
 .field private mPackageReceiver:Lcom/sonyericsson/home/PackageReceiver;
@@ -421,5 +423,28 @@
     invoke-super {p0}, Landroid/app/Application;->onTerminate()V
 
     .line 121
+    return-void
+.end method
+
+.method public getOrientation()Z
+    .locals 1
+
+    .prologue
+    .line 9
+    iget-boolean v0, p0, Lcom/sonyericsson/home/HomeApplication;->mOrientationLanscape:Z
+
+    #v0=(Boolean);
+    return v0
+.end method
+
+.method public setOrientation(Z)V
+    .locals 0
+    .parameter "bOrientationLanscape"
+
+    .prologue
+    .line 12
+    iput-boolean p1, p0, Lcom/sonyericsson/home/HomeApplication;->mOrientationLanscape:Z
+
+    .line 13
     return-void
 .end method

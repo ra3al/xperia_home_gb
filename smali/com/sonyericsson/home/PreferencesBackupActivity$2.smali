@@ -33,6 +33,7 @@
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    #p0=(Reference,Lcom/sonyericsson/home/PreferencesBackupActivity$2;);
     return-void
 .end method
 
@@ -46,10 +47,12 @@
     .line 52
     iget-object v0, p0, Lcom/sonyericsson/home/PreferencesBackupActivity$2;->this$0:Lcom/sonyericsson/home/PreferencesBackupActivity;
 
+    #v0=(Reference,Lcom/sonyericsson/home/PreferencesBackupActivity;);
     invoke-static {v0}, Lcom/sonyericsson/home/PreferencesBackupActivity;->access$1(Lcom/sonyericsson/home/PreferencesBackupActivity;)V
 
     .line 53
     const/4 v0, 0x1
 
+    #v0=(One);
     return v0
 .end method

@@ -929,6 +929,10 @@
 
     move-result v2
 
+    invoke-static {}, Lcom/ra3al/preference/ResourceWrapper_GB;->getDesktopCellWidth()I
+
+    move-result v2
+    
     .line 599
     .local v2, cellWidth:I
     iget-object v7, p0, Lcom/sonyericsson/home/layer/cornerbutton/HomeCornerButtonController;->mContext:Landroid/content/Context;
@@ -940,6 +944,10 @@
     const v8, 0x7f0a000f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    invoke-static {}, Lcom/ra3al/preference/ResourceWrapper_GB;->getDesktopCellHeight()I
 
     move-result v1
 

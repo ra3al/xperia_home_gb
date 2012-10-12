@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:title="Behavior Settings"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference android:entries="@array/homeButtonActions" android:title="Home button\u0020" android:key="homeButtonAction" android:summary="Home button default action" android:defaultValue="0" android:entryValues="@array/homeButtonActionsVals" />
+    <ListPreference android:entries="@array/homeButtonActions" android:title="Home button" android:key="homeButtonAction" android:summary="Home button default action" android:defaultValue="0" android:entryValues="@array/homeButtonActionsVals" />
     <CheckBoxPreference android:title="Automatic screen orientation" android:key="autoRotateScreen" android:summary="Automatically set portrait / landscape screen orientation" android:defaultValue="false" />
     <CheckBoxPreference android:title="Infinite scrolling" android:key="infiniteScroll" android:summary="Infinite scrolling on home screen and app drawer (experimental)" android:defaultValue="false" />
 </PreferenceScreen>

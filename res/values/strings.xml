@@ -60,4 +60,8 @@
     <string name="home_permission_broadcast_badge_label">set badges</string>
     <string name="home_permission_broadcast_badge_description">allows an application to set badges on applications\' activity icons. Note that this will make it possible for this application to set badges on other applications\' activity icons</string>
     <string name="home_preferences_menu">Preferences</string>
+    <string name="default_value_numberHomescreens">5</string>
+    <string name="default_value_numDesktopRows">4</string>
+    <string name="default_value_numDesktopCols">4</string>
+    <string name="default_value_defHomescreen">-1</string>
 </resources>

@@ -33,6 +33,7 @@
     .line 217
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    #p0=(Reference,Lcom/sonyericsson/home/PreferencesBackupActivity$6;);
     return-void
 .end method
 
@@ -44,6 +45,6 @@
     .parameter "which"
 
     .prologue
-    .line 222
+    .line 220
     return-void
 .end method

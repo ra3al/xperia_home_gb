@@ -54,4 +54,14 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+    <string-array name="homeConfigOptions">
+        <item>Dock bar</item>
+        <item>Dock bar and 4 Corners</item>
+        <item>4 Corners</item>
+    </string-array>
+    <string-array name="homeConfigOptionsVals">
+        <item>0</item>
+        <item>2</item>
+        <item>4</item>
+    </string-array>
 </resources>

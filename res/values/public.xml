@@ -136,6 +136,13 @@
     <public type="layout" name="preference_icon" id="0x7f030021" />
     <public type="layout" name="hidden_apps" id="0x7f030022" />
     <public type="layout" name="hidden_apps_row" id="0x7f030023" />
+    <public type="layout" name="corners_stub_2" id="0x7f030024" />
+    <public type="layout" name="corners_stub_4" id="0x7f030025" />
+    <public type="layout" name="main_2c" id="0x7f030026" />
+    <public type="layout" name="main_4c" id="0x7f030027" />
+    <public type="layout" name="main_att_2c" id="0x7f030028" />
+    <public type="layout" name="main_att_4c" id="0x7f030029" />
+    <public type="layout" name="stage_stub_4" id="0x7f03002a" />
     <public type="layout" name="apptray_pagination_att" id="0x7f030008" />
     <public type="anim" name="apptray_button_nudge" id="0x7f040000" />
     <public type="anim" name="apptray_close" id="0x7f040001" />
@@ -286,6 +293,10 @@
     <public type="string" name="home_permission_broadcast_badge_label" id="0x7f070039" />
     <public type="string" name="home_permission_broadcast_badge_description" id="0x7f07003a" />
     <public type="string" name="home_preferences_menu" id="0x7f07003b" />
+    <public type="string" name="default_value_numberHomescreens" id="0x7f07003c" />
+    <public type="string" name="default_value_numDesktopRows" id="0x7f07003d" />
+    <public type="string" name="default_value_numDesktopCols" id="0x7f07003e" />
+    <public type="string" name="default_value_defHomescreen" id="0x7f07003f" />
     <public type="style" name="HomeTheme" id="0x7f080000" />
     <public type="style" name="Layout.ButtonContainer" id="0x7f080001" />
     <public type="integer" name="folder_max_rows" id="0x7f090000" />
